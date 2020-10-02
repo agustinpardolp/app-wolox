@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { Redirect, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./privateRoute";
 
 const Home = lazy(() => import("../views/Home"));
 const Technologies = lazy(() => import("../views/Technologies"));

@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
+import { StyledHome } from "./styled-components";
 
 export const Home = () => {
-  return <div></div>;
+  return <StyledHome></StyledHome>;
 };
 
 const mapStateToProps = (state) => ({});
