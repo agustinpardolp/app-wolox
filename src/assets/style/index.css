@@ -1,15 +1,22 @@
 :root {
-  --firstColor: #239fd8;
+  --primary: #239fd8;
   --hoverColor: #2681ac;
-  --secondColor: #9dc13f;
-  --thirdColor: #060311;
-  --inactiveColor: #a8a8a8;
+  --primaryConfirm: #afcb07;
+  --primaryCancel: #ff5964;
+  --primaryFont: #060311;
+  --inactiveColor: #e0e0e2;
   --fontVar: "Fira Sans", sans-serif;
 }
 
 /* Normalizes margin, padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   font-family: var(--fontVar);
+  overflow-x: hidden;
 }
 
 /* Normalizes font-size for headers */

@@ -1,46 +1,85 @@
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { DEVICES_MAX_WIDTH } from "../../constants";
 
 const StyledNavbar = styled.header`
-  height: 5rem;
-  width: 100%;
-  background-image: url("images/Backgrounds/Bg_Header@3x.png");
-  background-size: cover;
+  background-image: url("images/Backgrounds/Bg_Header.png");
   display: flex;
-  align-items: center;
   justify-content: space-around;
-  margin-left: 5%;
-  margin-right: 5%;
-
+  align-items: center;
+  margin: auto;
+  height: 8rem;
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    /* flex-flow: column nowrap; */
+    display: block;
+  }
 
   .navbar-logo-container {
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
     img {
-      width: 40%;
+      width: 14rem;
+    }
+    @media ${DEVICES_MAX_WIDTH.laptop} {
+      height: 5rem;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+      padding-left: 2%;
+      padding-right: 2%;
+      img {
+        width: 10rem;
+      }
     }
   }
-  .navbar-button-container{
-    width: 30%;
+  .navbar-button-container {
     display: flex;
     justify-content: center;
-}
   }
+`;
+const StyledMenu = styled.ul`
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  li {
+    flex: auto;
+    cursor: pointer;
+    padding: 1.5rem;
+    flex: auto;
+    text-align: center;
+  }
+  a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
 
-  ul {
-    list-style: none;
-    display: flex;
-    width: 50%;
-    justify-content: flex-end;
-    a {
-      text-decoration: none;
-      font-size: 1.3rem;
-      font-weight: 500;
-      margin-right:2rem;
-      color: var(--thirdColor)
+    color: var(--thirdColor);
+  }
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    display: ${(props) => (props.display ? "block" : "none")};
+    height: 46vh;
+    z-index: 10000000;
+    background: #f7f7f7;
+    position: relative;
+
+    li {
+      &&:hover {
+        background: "var(--primary)";
+        transition: 1s;
+      }
     }
   }
-  /* 
-  transition: ${(props) => `${props.pageTransition}`};
-  text-align: center;
-  transition-delay: 300ms; */
 `;
 
-export { StyledNavbar };
+const StyledBarsIcon = styled(FontAwesomeIcon)`
+  font-size: 2rem;
+  display: none;
+  @media ${DEVICES_MAX_WIDTH.laptop} {
+    /* flex-flow: column nowrap; */
+    display: inline;
+  }
+`;
+export { StyledNavbar, StyledMenu, StyledBarsIcon };

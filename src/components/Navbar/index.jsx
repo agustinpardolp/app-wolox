@@ -1,35 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { StyledNavbar } from "./styled-components";
 import Button from "../Button";
+import Menu from "./Menu";
 import { NAVBAR_TITLES } from "../../constants/";
+import Burger from "./Burger";
 
 export const Navbar = ({ location }) => {
   let { pathname } = location;
+  let [showMenu, setShowMenu] = useState(false);
+
+  const handleShowMobileMenu = () => {
+    setShowMenu(!showMenu);
+  };
   return (
     <StyledNavbar>
       <div className="navbar-logo-container">
         <img src="images/logo_full_color.svg" alt="" />
+        <Burger onClick={handleShowMobileMenu} />
       </div>
-      <ul>
-        {NAVBAR_TITLES.map((label) => {
-          return (
-            <li>
-              <Link
-                active={pathname.includes(label.path)}
-                to={label.path}
-                key={label.name}
-              >
-                {label.name}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-      <div className="navbar-button-container">
-        <Button label={"Login"} />
-      </div>
+      <Menu pathname={pathname} display={showMenu} />
     </StyledNavbar>
   );
 };

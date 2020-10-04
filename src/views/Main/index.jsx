@@ -6,17 +6,20 @@ import Navbar from "../../components/Navbar/";
 import { StyledMain } from "./styled-components";
 import Home from "../Home";
 import Login from "../Login";
+import Footer from "../../components/Footer";
 
 const Main = () => {
   return (
     <StyledMain>
       <Navbar />
-      {/* <Switch>
+      <Switch>
         <Route path="/" component={Home} />
-        <Route path="/login" component={Login} />
+
+        {/* <Route path="/login" component={Login} />
         <PrivateRoute path="/:set?" component={Routes} />
-        <Redirect to="/" />
-      </Switch> */}
+        <Redirect to="/" /> */}
+      </Switch>
+      <Footer />
     </StyledMain>
   );
 };
