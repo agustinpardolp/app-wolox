@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { StyledNavbar } from "./styled-components";
@@ -10,12 +10,23 @@ import Burger from "./Burger";
 export const Navbar = ({ location }) => {
   let { pathname } = location;
   let [showMenu, setShowMenu] = useState(false);
+  let [hideOnScroll, sethideOnScroll] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll);
+  }, []);
+
+  const onScroll = () => {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50)
+      sethideOnScroll(true);
+    else sethideOnScroll(false);
+  };
 
   const handleShowMobileMenu = () => {
     setShowMenu(!showMenu);
   };
   return (
-    <StyledNavbar>
+    <StyledNavbar showNavbar={hideOnScroll}>
       <div className="navbar-logo-container">
         <img src="images/logo_full_color.svg" alt="" />
         <Burger onClick={handleShowMobileMenu} />

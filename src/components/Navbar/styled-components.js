@@ -3,15 +3,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DEVICES_MAX_WIDTH } from "../../constants";
 
 const StyledNavbar = styled.header`
-  background-image: url("images/Backgrounds/Bg_Header.png");
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: auto;
-  height: 8rem;
+  opacity: ${(props) => (props.showNavbar ? "0" : "1")};
+  background-image: url("images/Backgrounds/Bg_Header.png");
+  height: 5rem;
+  margin: 2%;
+  position: sticky;
+  top: 0;
+  transition: 1s;
+  &&:hover {
+    opacity: ${(props) => props.showNavbar && "1"};
+    background: ${(props) => props.showNavbar && "var(--backgroundHover)"};
+    transition: 1s;
+  }
+
   @media ${DEVICES_MAX_WIDTH.laptop} {
-    /* flex-flow: column nowrap; */
     display: block;
+    height: 100%;
   }
 
   .navbar-logo-container {
@@ -22,13 +32,11 @@ const StyledNavbar = styled.header`
       width: 14rem;
     }
     @media ${DEVICES_MAX_WIDTH.laptop} {
-      height: 5rem;
       display: flex;
       align-items: center;
       width: 100%;
       justify-content: space-between;
-      padding-left: 2%;
-      padding-right: 2%;
+      padding: 2%;
       img {
         width: 10rem;
       }
@@ -61,7 +69,7 @@ const StyledMenu = styled.ul`
   @media ${DEVICES_MAX_WIDTH.laptop} {
     display: ${(props) => (props.display ? "block" : "none")};
     height: 46vh;
-    z-index: 10000000;
+
     background: #f7f7f7;
     position: relative;
 

@@ -1,8 +1,8 @@
 export const NAVBAR_TITLES = [
-  { name: "Inicio", path: "/" },
-  { name: "Tecnologias", path: "/tecnologias" },
-  { name: "Beneficios", path: "/beneficios" },
-  { name: "Requerimientos", path: "/requerimientos" },
+  { name: "Inicio", path: "/#home" },
+  { name: "Tecnologias", path: "/#tecnologias" },
+  { name: "Beneficios", path: "/#beneficios" },
+  { name: "Requerimientos", path: "/#requerimientos" },
 ];
 export const BENEFIT_LIST = [
   { name: "Flexibilidad Horaria", file: "Ic_Hour" },

@@ -1,6 +1,7 @@
 :root {
   --primary: #239fd8;
   --hoverColor: #2681ac;
+  --backgroundHover: #ffffffe3;
   --primaryConfirm: #afcb07;
   --primaryCancel: #ff5964;
   --primaryFont: #060311;

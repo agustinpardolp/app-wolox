@@ -1,24 +1,24 @@
 import styled from "styled-components";
 import { DEVICES_MAX_WIDTH } from "../../constants";
+
 const StyledHome = styled.section`
   .home_benefits {
     padding: 2rem;
     margin-left: ${(props) => (props.marginLeft ? props.marginLeft : "5%")};
     margin-right: ${(props) => (props.marginRight ? props.marginRight : "5%")};
 
-    @media ${DEVICES_MAX_WIDTH.laptop} {
-      /* flex-flow: column nowrap; */
-      display: contents;
-      h2 {
-        font-size: 2rem;
-        text-align: center;
-        margin: 2rem;
-      }
-    }
     h2 {
       font-size: 2.4rem;
       text-align: center;
       margin: 4rem;
+    }
+    @media ${DEVICES_MAX_WIDTH.laptop} {
+      display: contents;
+      h2 {
+        font-size: 2rem;
+        text-align: center;
+        margin: 2.2rem;
+      }
     }
   }
   .home_final-content {
@@ -43,12 +43,10 @@ const StyledHome = styled.section`
     justify-content: space-evenly;
     margin-bottom: 5rem;
     @media ${DEVICES_MAX_WIDTH.laptop} {
-      /* flex-flow: column nowrap; */
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
     }
     @media ${DEVICES_MAX_WIDTH.tablet} {
-      /* flex-flow: column nowrap; */
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
@@ -87,7 +85,7 @@ const StyledHomeWrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   margin-left: ${(props) => (props.marginLeft ? props.marginLeft : "10%")};
   margin-right: ${(props) => (props.marginRight ? props.marginRight : "10%")};
-
+  margin-bottom: ${(props) => (props.marginRight ? props.marginRight : "2%")};
   p {
     font-size: ${(props) => props.paragraphSize && props.paragraphSize};
     width: 60%;
@@ -95,14 +93,14 @@ const StyledHomeWrapper = styled.div`
   @media ${DEVICES_MAX_WIDTH.laptop} {
     display: contents;
     p {
-      font-size: ${(props) => props.paragraphSize && props.paragraphSize};
+      font-size: 2.2rem;
       width: 100%;
       text-align: center;
     }
   }
 `;
 
-const StyledFirstChild = styled.div`
+const StyledDataWrapper = styled.div`
   height: ${(props) => (props.height ? props.height : "30rem")};
   display: ${(props) => (props.display ? props.display : "flex")};
   justify-content: center;
@@ -113,14 +111,7 @@ const StyledFirstChild = styled.div`
       : props.background
       ? props.background
       : `url("images/Backgrounds/Bg_Header.png") no-repeat center`};
-  background-size: ${(props) => props.backgroundCover && "cover"};
-  padding: 1%;
-`;
-const StyledSecondChild = styled.div`
-  height: ${(props) => (props.height ? props.height : "30rem")};
-  background: ${(props) =>
-    props.backgroundImage &&
-    `url("${props.backgroundImage}") no-repeat center`};
+  background-size: ${(props) => (props.backgroundSize ? "contain" : "cover")};
   padding: 1%;
 `;
 
@@ -153,10 +144,4 @@ const StyledDivContainer = styled.div`
     font-size: 1.4rem;
   }
 `;
-export {
-  StyledHome,
-  StyledHomeWrapper,
-  StyledFirstChild,
-  StyledSecondChild,
-  StyledDivContainer,
-};
+export { StyledHome, StyledHomeWrapper, StyledDataWrapper, StyledDivContainer };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import Button from "../Button";
 import { NAVBAR_TITLES } from "../../constants";
 
@@ -11,11 +11,12 @@ const Menu = ({ pathname, display }) => {
       <StyledMenu display={display}>
         {NAVBAR_TITLES.map((label) => {
           return (
-            <li>
+            <li key={label.name}>
               <Link
                 active={pathname.includes(label.path)}
                 to={label.path}
                 key={label.name}
+                smooth
               >
                 {label.name}
               </Link>
@@ -31,3 +32,27 @@ const Menu = ({ pathname, display }) => {
 };
 
 export default Menu;
+
+{
+  /* <StyledMenu display={display}>
+<ul>
+  {NAVBAR_TITLES.map((label) => {
+    return (
+      <li key={label.name}>
+        <Link
+          active={pathname.includes(label.path)}
+          to={label.path}
+          key={label.name}
+          smooth
+        >
+          {label.name}
+        </Link>
+      </li>
+    );
+  })}
+  <li className="navbar-button-container">
+    <Button label={"Login"} type={"login"} />
+  </li>
+</ul>
+</StyledMenu> */
+}
