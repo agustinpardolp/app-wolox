@@ -1,0 +1,31 @@
+:root {
+  --primary: #239fd8;
+  --hoverColor: #2681ac;
+  --backgroundHover: #ffffffe3;
+  --primaryConfirm: #afcb07;
+  --primaryCancel: #ff5964;
+  --primaryFont: #060311;
+  --inactiveColor: #e0e0e2;
+  --fontVar: "Fira Sans", sans-serif;
+}
+
+/* Normalizes margin, padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--fontVar);
+  overflow-x: hidden;
+}
+
+/* Normalizes font-size for headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}

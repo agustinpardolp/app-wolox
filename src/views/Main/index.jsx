@@ -1,8 +1,34 @@
 import React from "react";
-import Navbar from "../../components/Navbar";
+import { Redirect, Route, Switch, withRouter } from "react-router-dom";
+import Routes from "../../routes";
+import PrivateRoute from "../../routes/privateRoute";
+import Navbar from "../../components/Navbar/";
+import { StyledMain } from "./styled-components";
+import Introduction from "../Home/Introduction";
+import Technologies from "../Home/Technologies";
+import Requirements from "../Home/Requirements";
+import Benefits from "../Home/Benefits";
+import Home from "../Home";
+import Login from "../Login";
+import Footer from "../../components/Footer";
 
 const Main = () => {
-  return <Navbar />;
+  return (
+    <StyledMain>
+      <Navbar />
+      <Switch>
+        <Route path="/" component={Home} />
+        {/* <Route path="/tecnologias" component={Technologies} />
+        <Route path="/beneficios" component={Benefits} />
+        <Route path="/requerimientos" component={Requirements} /> */}
+
+        {/* <Route path="/login" component={Login} />
+        <PrivateRoute path="/:set?" component={Routes} />
+        <Redirect to="/" /> */}
+      </Switch>
+      <Footer />
+    </StyledMain>
+  );
 };
 
-export default Main;
+export default withRouter(Main);
