@@ -17,14 +17,10 @@ const Main = () => {
     <StyledMain>
       <Navbar />
       <Switch>
-        <Route path="/" component={Home} />
-        {/* <Route path="/tecnologias" component={Technologies} />
-        <Route path="/beneficios" component={Benefits} />
-        <Route path="/requerimientos" component={Requirements} /> */}
-
-        {/* <Route path="/login" component={Login} />
-        <PrivateRoute path="/:set?" component={Routes} />
-        <Redirect to="/" /> */}
+        <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <PrivateRoute path="/auth/:set?" component={Routes} />
+        {/* <Redirect to="/" /> */}
       </Switch>
       <Footer />
     </StyledMain>

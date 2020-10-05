@@ -4,18 +4,23 @@ const Requirements = () => {
   return (
     <StyledHomeWrapper paragraphSize={"2.5rem"} id="requerimientos">
       <StyledDataWrapper height={"20rem"}>
-        <p>
-          <strong> Requerimientos</strong>
-        </p>
+        <p>Requerimientos</p>
       </StyledDataWrapper>
       <StyledDataWrapper>
         <ul className="home_requirements-list">
           <li>
-            Estudiantes avanzados o recibidos de carreras del rubro informático,
-            sistemas o electronicos
+            <img src="/images/Bullets/Ic_Bullet_1.svg" alt="" /> Estudiantes
+            avanzados o recibidos de carreras del rubro informático, sistemas o
+            electronicos
           </li>
-          <li>Ingles intermedio/avanzado</li>
-          <li>Conocimiento en metodologias ágiles (deseable)</li>
+          <li>
+            <img src="/images/Bullets/Ic_Bullet_2.svg" alt="" />
+            Ingles intermedio/avanzado
+          </li>
+          <li>
+            <img src="/images/Bullets/Ic_Bullet_3.svg" alt="" />
+            Conocimiento en metodologias ágiles (deseable)
+          </li>
         </ul>
       </StyledDataWrapper>
     </StyledHomeWrapper>

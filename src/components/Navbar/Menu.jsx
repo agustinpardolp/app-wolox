@@ -5,7 +5,14 @@ import { NAVBAR_TITLES } from "../../constants";
 
 import { StyledMenu } from "./styled-components";
 
-const Menu = ({ pathname, display }) => {
+const Menu = ({ pathname, display, history, token, logout }) => {
+  const onClickRedirect = () => {
+    history.push("/login");
+  };
+  const handleLogout = () => {
+    logout();
+    history.push("/#home");
+  };
   return (
     <>
       <StyledMenu display={display}>
@@ -24,7 +31,19 @@ const Menu = ({ pathname, display }) => {
           );
         })}
         <li className="navbar-button-container">
-          <Button label={"Login"} type={"login"} />
+          {Object.keys(token).length ? (
+            <Button
+              label={"Logout"}
+              styleClass={"logout"}
+              onClick={handleLogout}
+            />
+          ) : (
+            <Button
+              label={"Login"}
+              styleClass={"login"}
+              onClick={onClickRedirect}
+            />
+          )}
         </li>
       </StyledMenu>
     </>
@@ -32,27 +51,3 @@ const Menu = ({ pathname, display }) => {
 };
 
 export default Menu;
-
-{
-  /* <StyledMenu display={display}>
-<ul>
-  {NAVBAR_TITLES.map((label) => {
-    return (
-      <li key={label.name}>
-        <Link
-          active={pathname.includes(label.path)}
-          to={label.path}
-          key={label.name}
-          smooth
-        >
-          {label.name}
-        </Link>
-      </li>
-    );
-  })}
-  <li className="navbar-button-container">
-    <Button label={"Login"} type={"login"} />
-  </li>
-</ul>
-</StyledMenu> */
-}

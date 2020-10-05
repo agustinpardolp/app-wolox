@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  width: 13rem;
-  height: 2rem;
+  width: 10rem;
+  height: 1rem;
   border-radius: 5rem;
   display: flex;
   align-items: center;
@@ -13,9 +13,10 @@ const StyledButton = styled.button`
   background: ${(props) =>
     props.backgroundColor ? props.backgroundColor : "white"};
   color: ${(props) => (props.fontColor ? props.fontColor : "var(--primary)")};
-  font-size: 1.2rem;
-  padding: 1.5rem;
+  font-size: 1rem;
+  padding: 1.2rem;
   transition: 1s;
+  outline: none;
   &&:hover {
     background: ${(props) =>
       props.borderColor ? props.borderColor : "var(--primary)"};

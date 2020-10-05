@@ -6,6 +6,7 @@
   --primaryCancel: #ff5964;
   --primaryFont: #060311;
   --inactiveColor: #e0e0e2;
+  --primaryInputBorder: #908b8be3;
   --fontVar: "Fira Sans", sans-serif;
 }
 
@@ -18,6 +19,7 @@
 body {
   font-family: var(--fontVar);
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 /* Normalizes font-size for headers */

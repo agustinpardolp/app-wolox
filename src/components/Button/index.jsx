@@ -1,19 +1,21 @@
 import React from "react";
 import { StyledButton } from "./styled-components";
 
-const Button = ({ label, onClick, type }) => {
+const Button = ({ label, onClick, styleClass, type }) => {
   const buttonTypeSelector = (type) => {
     let settings = {
       borderColor: "var(--primary)",
       fontColor: "white",
       backgroundColor: "var(--primary)",
+      disabled: false,
     };
-    switch (type) {
+    switch (styleClass) {
       case "confirm":
         settings = {
           borderColor: "var(--primaryConfirm)",
           fontColor: "white",
           backgroundColor: "var(--primaryConfirm)",
+          disabled: false,
         };
         break;
       case "cancel":
@@ -21,6 +23,7 @@ const Button = ({ label, onClick, type }) => {
           borderColor: "var(--primaryCancel)",
           fontColor: "white",
           backgroundColor: "var(--primaryCancel)",
+          disabled: false,
         };
         break;
       case "neutral":
@@ -28,6 +31,15 @@ const Button = ({ label, onClick, type }) => {
           borderColor: "var(--primary)",
           fontColor: "white",
           backgroundColor: "none",
+          disabled: false,
+        };
+        break;
+      case "disabled":
+        settings = {
+          borderColor: "var(--primaryInputBorder)",
+          fontColor: "white",
+          disabled: true,
+          backgroundColor: "var(--primaryInputBorder)",
         };
         break;
       case "login":
@@ -35,6 +47,15 @@ const Button = ({ label, onClick, type }) => {
           borderColor: "var(--primary)",
           fontColor: "var(--primary)",
           backgroundColor: "white",
+          disabled: false,
+        };
+        break;
+      case "logout":
+        settings = {
+          borderColor: "var(--primaryInputBorder)",
+          fontColor: "var(--primaryCancel)",
+          backgroundColor: "white",
+          disabled: false,
         };
         break;
       default:
@@ -43,13 +64,15 @@ const Button = ({ label, onClick, type }) => {
 
     return settings;
   };
-  let buttonSetup = buttonTypeSelector(type);
+  let buttonSetup = buttonTypeSelector(styleClass);
   return (
     <StyledButton
       onClick={onClick}
       borderColor={buttonSetup.borderColor}
       fontColor={buttonSetup.fontColor}
       backgroundColor={buttonSetup.backgroundColor}
+      type={type}
+      disabled={buttonSetup.disabled}
     >
       {label}
     </StyledButton>
