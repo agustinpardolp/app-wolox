@@ -7,10 +7,14 @@ const StyledHome = styled.section`
     margin-left: ${(props) => (props.marginLeft ? props.marginLeft : "5%")};
     margin-right: ${(props) => (props.marginRight ? props.marginRight : "5%")};
 
-    h2 {
+    p {
       font-size: 2.4rem;
       text-align: center;
-      margin: 4rem;
+      margin-top: 3rem;
+      margin-bottom: 4rem;
+      font-size: ${(props) => props.paragraphSize && props.paragraphSize};
+      width: 100%;
+      font-weight: bold;
     }
     @media ${DEVICES_MAX_WIDTH.laptop} {
       display: contents;
@@ -18,6 +22,12 @@ const StyledHome = styled.section`
         font-size: 2rem;
         text-align: center;
         margin: 2.2rem;
+      }
+      p {
+        font-size: ${(props) => props.paragraphSize && props.paragraphSize};
+        font-size: 2rem;
+        width: 90%;
+        font-weight: normal;
       }
     }
   }
@@ -28,9 +38,9 @@ const StyledHome = styled.section`
     justify-content: center;
     align-items: center;
     text-align: center;
-    h2,
+    p,
     span {
-      font-size: 3rem;
+      font-size: 2.4rem;
     }
   }
   .home_final-content > span {
@@ -73,9 +83,13 @@ const StyledHome = styled.section`
   }
   .home_requirements-list {
     li {
+      display: flex;
       font-size: 1.5rem;
       list-style: none;
       margin: 2rem;
+    }
+    li > img {
+      margin-right: 1rem;
     }
   }
 `;
@@ -86,9 +100,11 @@ const StyledHomeWrapper = styled.div`
   margin-left: ${(props) => (props.marginLeft ? props.marginLeft : "10%")};
   margin-right: ${(props) => (props.marginRight ? props.marginRight : "10%")};
   margin-bottom: ${(props) => (props.marginRight ? props.marginRight : "2%")};
+  align-items: center;
   p {
     font-size: ${(props) => props.paragraphSize && props.paragraphSize};
     width: 60%;
+    font-weight: bold;
   }
   @media ${DEVICES_MAX_WIDTH.laptop} {
     display: contents;
@@ -96,6 +112,7 @@ const StyledHomeWrapper = styled.div`
       font-size: 2.2rem;
       width: 100%;
       text-align: center;
+      font-weight: normal;
     }
   }
 `;
@@ -113,6 +130,11 @@ const StyledDataWrapper = styled.div`
       : `url("images/Backgrounds/Bg_Header.png") no-repeat center`};
   background-size: ${(props) => (props.backgroundSize ? "contain" : "cover")};
   padding: 1%;
+
+  /* @media ${DEVICES_MAX_WIDTH.tablet} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  } */
 `;
 
 const StyledDivContainer = styled.div`

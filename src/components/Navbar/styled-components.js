@@ -19,6 +19,10 @@ const StyledNavbar = styled.header`
     transition: 1s;
   }
 
+  li:hover {
+    color: var(--primary);
+  }
+
   @media ${DEVICES_MAX_WIDTH.laptop} {
     display: block;
     height: 100%;

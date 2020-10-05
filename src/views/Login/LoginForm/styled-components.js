@@ -21,13 +21,19 @@ const StyledLogin = styled.section`
     margin: 2%;
   }
   form {
-    margin-left: 4%;
-    margin-right: 4%;
+    margin: 0% 4% 5% 4%;
     background: white;
     height: 30rem;
     width: 30rem;
     border-radius: 5px;
     box-shadow: 0 0 25px 0 var(--primaryInputBorder);
+  }
+
+  .login_checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primaryInputBorder);
   }
   .login-container {
     display: grid;
@@ -39,23 +45,4 @@ const StyledLogin = styled.section`
   }
 `;
 
-const StyledInputContainer = styled.div`
-
-.login-label{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    color:var(--primaryInputBorder);
-}
-}
-  input {
-    width: 18rem;
-    height: 2.2rem;
-    border-radius: 5px;
-    border:none;
-    border-bottom:1px solid var(--primaryInputBorder);
-  }
-`;
-
-export { StyledLogin, StyledInputContainer };
+export { StyledLogin };

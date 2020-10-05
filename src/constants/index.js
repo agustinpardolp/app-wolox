@@ -1,6 +1,17 @@
+const BASE_URL = "http://private-8e8921-woloxfrontendinverview.apiary-mock.com";
+
+const LOGIN_PATH = "/login";
+const TECH_PATH = "/techs";
+
+export const LOGIN_ENDPOINT = BASE_URL + LOGIN_PATH;
+export const TECH_ENDPOINT = BASE_URL + TECH_PATH;
+
+export const TWITER_URL = "https://twitter.com/Wolox";
+export const WOLOX_URL = "https://www.wolox.com.ar/";
+
 export const NAVBAR_TITLES = [
-  { name: "Inicio", path: "/#home" },
-  { name: "Tecnologias", path: "/#tecnologias" },
+  { name: "Inicio", path: "/#home", authPath: "/auth/home" },
+  { name: "Tecnologias", path: "/#tecnologias", authPath: "/auth/tecnologias" },
   { name: "Beneficios", path: "/#beneficios" },
   { name: "Requerimientos", path: "/#requerimientos" },
 ];
@@ -12,6 +23,11 @@ export const BENEFIT_LIST = [
   { name: "Semana remota", file: "Ic_laptop" },
   { name: "Trabajar en ultimas tecnologías", file: "Ic_brain" },
 ];
+
+export const REGEX = {
+  NUMERIC_PASSWORD: /^[0-9]+$/,
+  EMAIL_REGEX_SCHEMA: /^(?=.{1,254}$)((?=.{1,64}@)[ñÑa-zA-Z0-9-`~!@#$%^&*?/()_|+\-=;:'"´¨,.<>\{\}\[\]\\\/]+\.[A-Za-z]{2,4},?)$/,
+};
 export const REQUEST_STATUS = {
   NOT_LOADED: "NOT_LOADED",
   LOADING: "LOADING",

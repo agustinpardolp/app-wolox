@@ -19,8 +19,8 @@ const Main = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
-        {/* <PrivateRoute path="/:set?" component={Routes} />
-        <Redirect to="/" />  */}
+        <PrivateRoute path="/auth/:set?" component={Routes} />
+        {/* <Redirect to="/" /> */}
       </Switch>
       <Footer />
     </StyledMain>

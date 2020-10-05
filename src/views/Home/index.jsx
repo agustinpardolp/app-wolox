@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -8,14 +9,18 @@ import {
   StyledDataWrapper,
   StyledDivContainer,
 } from "./styled-components";
-import { BENEFIT_LIST } from "../../constants";
+import { TWITER_URL, WOLOX_URL } from "../../constants";
 import Button from "../../components/Button";
 import Introduction from "./Introduction";
 import Technologies from "./Technologies";
 import Benefits from "./Benefits";
 import Requirements from "./Requirements";
 
-export const Home = () => {
+export const Home = ({ history }) => {
+  const handleRedirect = (ULR) => {
+    return window.open(ULR);
+  };
+
   return (
     <StyledHome>
       <Introduction />
@@ -36,7 +41,11 @@ export const Home = () => {
               <FontAwesomeIcon icon={faTwitter} />
               <span>@Wolox</span>
             </div>
-            <Button label={"Siguenos"} type={"neutral"} />
+            <Button
+              label={"Siguenos"}
+              styleClass={"neutral"}
+              onClick={() => handleRedirect(TWITER_URL)}
+            />
           </StyledDivContainer>
         </StyledDataWrapper>
         <StyledDataWrapper background={"var(--inactiveColor)"}>
@@ -47,14 +56,17 @@ export const Home = () => {
         </StyledDataWrapper>
       </StyledHomeWrapper>
       <Benefits />
-      <Requirements id="requerimientos" />
+      <Requirements />
       <div className="home_final-content">
-        <h2>
+        <p>
           Gracias por{" "}
           <span className="home_span-primary">completar el ejercicio</span>
-        </h2>
+        </p>
         <span>Te invitamos a ver mas informacion</span>
-        <Button label={"Conoce mas"} />
+        <Button
+          label={"Conoce mas"}
+          onClick={() => handleRedirect(WOLOX_URL)}
+        />
       </div>
     </StyledHome>
   );

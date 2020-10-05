@@ -14,8 +14,6 @@ const ContentWrapper = ({
   display,
   fontSize,
 }) => {
-  console.log("imgFIrst", imageFirstChild);
-  console.log("secondFIrst", imageSecondChild);
   return (
     <StyledContentWrapper>
       <StyledFirstChild

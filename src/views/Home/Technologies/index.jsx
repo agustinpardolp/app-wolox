@@ -10,11 +10,8 @@ const Technologies = () => {
     >
       <StyledDataWrapper>
         <p>
-          <strong>
-            {" "}
-            Estamos buscando para incorporar gente increible para estas
-            tecnologías:
-          </strong>{" "}
+          Estamos buscando para incorporar gente increible para estas
+          tecnologías:
         </p>
       </StyledDataWrapper>
       <StyledDataWrapper

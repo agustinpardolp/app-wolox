@@ -2,11 +2,12 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ token, component: Component, ...rest }) => {
   const checkAuth = () => {
-    let tokenData = JSON.parse(sessionStorage.getItem("token_data"));
+    let tokenData = JSON.parse(localStorage.getItem("token_data"));
 
-    if (tokenData) {
+    if (tokenData || token) {
+      // console.log("TRUE", "local: ", tokenData, "rdeux: ", token);
       return true;
     } else return false;
   };
@@ -30,6 +31,13 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     </>
   );
 };
-const mapDispatchToProps = {};
+export const mapStateToProps = (state) => {
+  const {
+    user: { token },
+  } = state;
+  return {
+    token,
+  };
+};
 
-export default connect(null, mapDispatchToProps)(PrivateRoute);
+export default connect(mapStateToProps, null)(PrivateRoute);

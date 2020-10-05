@@ -4,10 +4,10 @@ import Divider from "../../../components/Divider";
 const Benefits = () => {
   return (
     <div className="home_benefits" id="beneficios">
-      <h2>
+      <p>
         Entre los beneficios que ofrecemos se encuentran{" "}
         <span className="home_span-primary">;)</span>
-      </h2>
+      </p>
       <div className="home_benefits_list-container">
         {BENEFIT_LIST.map((benefits) => {
           return (
