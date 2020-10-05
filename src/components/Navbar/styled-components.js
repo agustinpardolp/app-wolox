@@ -9,7 +9,7 @@ const StyledNavbar = styled.header`
   opacity: ${(props) => (props.showNavbar ? "0" : "1")};
   background-image: url("images/Backgrounds/Bg_Header.png");
   height: 5rem;
-  margin: 2%;
+  padding: 2%;
   position: sticky;
   top: 0;
   transition: 1s;

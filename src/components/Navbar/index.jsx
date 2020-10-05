@@ -7,7 +7,7 @@ import Menu from "./Menu";
 import { NAVBAR_TITLES } from "../../constants/";
 import Burger from "./Burger";
 
-export const Navbar = ({ location }) => {
+export const Navbar = ({ location, history }) => {
   let { pathname } = location;
   let [showMenu, setShowMenu] = useState(false);
   let [hideOnScroll, sethideOnScroll] = useState(false);
@@ -31,7 +31,7 @@ export const Navbar = ({ location }) => {
         <img src="images/logo_full_color.svg" alt="" />
         <Burger onClick={handleShowMobileMenu} />
       </div>
-      <Menu pathname={pathname} display={showMenu} />
+      <Menu pathname={pathname} display={showMenu} history={history} />
     </StyledNavbar>
   );
 };

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  width: 13rem;
-  height: 2rem;
+  width: 12rem;
+  height: 1.8rem;
   border-radius: 5rem;
   display: flex;
   align-items: center;
