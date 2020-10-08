@@ -1,5 +1,4 @@
 import axios from "axios";
-
 import { LOGIN_ENDPOINT } from "../constants";
 
 const login = async (username, password, rememberUser) => {

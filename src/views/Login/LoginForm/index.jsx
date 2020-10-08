@@ -43,7 +43,7 @@ const LoginForm = ({ values, handleChange, handleSubmit, errors, history }) => {
           <Button
             label={"Ingresar"}
             type={!errorsFormHandler() ? "submit" : "text"}
-            styleClass={!errorsFormHandler() ? "confirm" : "disabled"}
+            variant={!errorsFormHandler() ? "confirm" : "disabled"}
           />
           <div className="login_checkbox-container">
             <p>Deseo mantener mi sesión conectada</p>

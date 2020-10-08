@@ -15,6 +15,10 @@ export const NAVBAR_TITLES = [
   { name: "Beneficios", path: "/#beneficios" },
   { name: "Requerimientos", path: "/#requerimientos" },
 ];
+export const NAVBAR_AUTH_TITLES = [
+  { name: "Inicio", path: "/auth/home" },
+  { name: "Tecnologias", path: "/auth/tecnologias" },
+];
 export const BENEFIT_LIST = [
   { name: "Flexibilidad Horaria", file: "Ic_Hour" },
   { name: "Home Office", file: "Ic_HomeOffice" },

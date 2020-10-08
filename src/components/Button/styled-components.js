@@ -21,7 +21,9 @@ const StyledButton = styled.button`
     background: ${(props) =>
       props.borderColor ? props.borderColor : "var(--primary)"};
     color: ${(props) =>
-      props.backgroundColor ? props.backgroundColor : "white"};
+      props.backgroundColor
+        ? "var(--primaryFont)"
+        : "var(--primaryFontReverse)"};
     transition: 1s;
   }
 `;

@@ -2,9 +2,12 @@
   --primary: #239fd8;
   --hoverColor: #2681ac;
   --backgroundHover: #ffffffe3;
+  --backgroundModal: #edf1f3;
+  --backGroundNeutral: #ffffff;
   --primaryConfirm: #afcb07;
   --primaryCancel: #ff5964;
   --primaryFont: #060311;
+  --primaryFontReverse: #ffffffe3;
   --inactiveColor: #e0e0e2;
   --primaryInputBorder: #908b8be3;
   --fontVar: "Fira Sans", sans-serif;

@@ -1,6 +1,13 @@
 import styled from "styled-components";
+import { DEVICES_MAX_WIDTH } from "../../constants";
 
 const StyledInputContainer = styled.div`
+  @media ${DEVICES_MAX_WIDTH.tablet} {
+    display: block;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+  }
   .label {
     display: flex;
     justify-content: center;

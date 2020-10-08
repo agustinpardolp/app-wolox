@@ -3,6 +3,11 @@ import ReactDOM from "react-dom";
 import "../src/assets/style/index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import { addLocaleData } from "react-intl";
+import locale_en from "react-intl/locale-data/en";
+import locale_de from "react-intl/locale-data/de";
+
+addLocaleData([...locale_en, ...locale_de]);
 
 ReactDOM.render(
   <React.StrictMode>

@@ -130,11 +130,6 @@ const StyledDataWrapper = styled.div`
       : `url("images/Backgrounds/Bg_Header.png") no-repeat center`};
   background-size: ${(props) => (props.backgroundSize ? "contain" : "cover")};
   padding: 1%;
-
-  /* @media ${DEVICES_MAX_WIDTH.tablet} {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  } */
 `;
 
 const StyledDivContainer = styled.div`
