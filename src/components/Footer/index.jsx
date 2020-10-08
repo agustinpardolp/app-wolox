@@ -1,9 +1,10 @@
 import React from "react";
 import { StyledFooter } from "./styled-components";
+import BrandFooter from "../../assets/images/Ic_Wolox_Footer.svg";
 const Footer = () => {
   return (
     <StyledFooter>
-      <img src="images/Img Hero/Ic_Wolox_Footer.svg" alt="" />
+      <img src={BrandFooter} alt="" />
     </StyledFooter>
   );
 };

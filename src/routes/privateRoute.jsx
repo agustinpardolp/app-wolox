@@ -7,7 +7,6 @@ const PrivateRoute = ({ token, component: Component, ...rest }) => {
     let tokenData = JSON.parse(localStorage.getItem("token_data"));
 
     if (tokenData || token) {
-      // console.log("TRUE", "local: ", tokenData, "rdeux: ", token);
       return true;
     } else return false;
   };
@@ -18,7 +17,9 @@ const PrivateRoute = ({ token, component: Component, ...rest }) => {
         {...rest}
         render={(props) =>
           checkAuth(props) ? (
-            <Component {...props} />
+            <>
+              <Component {...props} />
+            </>
           ) : (
             <>
               <Redirect

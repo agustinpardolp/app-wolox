@@ -1,15 +1,15 @@
 import React from "react";
 import { StyledButton } from "./styled-components";
 
-const Button = ({ label, onClick, styleClass, type }) => {
-  const buttonTypeSelector = (type) => {
+const Button = ({ label, onClick, variant, type }) => {
+  const handleVariant = (variant) => {
     let settings = {
       borderColor: "var(--primary)",
       fontColor: "white",
       backgroundColor: "var(--primary)",
       disabled: false,
     };
-    switch (styleClass) {
+    switch (variant) {
       case "confirm":
         settings = {
           borderColor: "var(--primaryConfirm)",
@@ -53,7 +53,7 @@ const Button = ({ label, onClick, styleClass, type }) => {
       case "logout":
         settings = {
           borderColor: "var(--primaryInputBorder)",
-          fontColor: "var(--primaryCancel)",
+          fontColor: "var(--primaryInputBorder)",
           backgroundColor: "white",
           disabled: false,
         };
@@ -64,7 +64,8 @@ const Button = ({ label, onClick, styleClass, type }) => {
 
     return settings;
   };
-  let buttonSetup = buttonTypeSelector(styleClass);
+  let buttonSetup = handleVariant(variant);
+
   return (
     <StyledButton
       onClick={onClick}

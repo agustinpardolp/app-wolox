@@ -36,7 +36,6 @@ export const logoutRequest = () => {
   };
 };
 export const logoutSuccess = () => {
-  console.log("logout Action");
   return {
     type: types.LOGOUT_USER_SUCCESS,
   };

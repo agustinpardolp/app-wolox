@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { Redirect, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import PrivateRoute from "./privateRoute";
+import ToastNotificacion from "../components/ToastNotification";
 
 const Home = lazy(() => import("../views/Home"));
 const Technologies = lazy(() => import("../views/Technologies"));
@@ -15,8 +16,8 @@ const Routes = ({ match }) => {
           path={`${match.path}tecnologias`}
           component={Technologies}
         />
+        <Redirect to="/auth/home" />
       </Switch>
-      <Redirect from="/" to="/auth/home" />
     </Suspense>
   );
 };

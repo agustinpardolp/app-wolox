@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DEVICES_MAX_WIDTH } from "../../constants";
+import { HashLink as Link } from "react-router-hash-link";
 
 const StyledNavbar = styled.header`
   display: flex;
@@ -15,8 +16,9 @@ const StyledNavbar = styled.header`
   transition: 1s;
   &&:hover {
     opacity: ${(props) => props.showNavbar && "1"};
-    background: ${(props) => props.showNavbar && "var(--backgroundHover)"};
+    background: ${(props) => props.showNavbar && "var(--primaryInputBorder)"};
     transition: 1s;
+    z-index: ${(props) => props.showNavbar && "10000"};
   }
 
   li:hover {
@@ -51,6 +53,12 @@ const StyledNavbar = styled.header`
     justify-content: center;
   }
 `;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: ${(props) => (props.active ? "var(--primary)" : "var(--thirdColor)")};
+`;
 const StyledMenu = styled.ul`
   list-style: none;
   display: flex;
@@ -63,13 +71,7 @@ const StyledMenu = styled.ul`
     flex: auto;
     text-align: center;
   }
-  a {
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 500;
 
-    color: var(--thirdColor);
-  }
   @media ${DEVICES_MAX_WIDTH.laptop} {
     display: ${(props) => (props.display ? "block" : "none")};
     height: 46vh;
@@ -94,4 +96,4 @@ const StyledBarsIcon = styled(FontAwesomeIcon)`
     display: inline;
   }
 `;
-export { StyledNavbar, StyledMenu, StyledBarsIcon };
+export { StyledNavbar, StyledMenu, StyledBarsIcon, StyledLink };

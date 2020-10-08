@@ -42,8 +42,8 @@ export const Home = ({ history }) => {
               <span>@Wolox</span>
             </div>
             <Button
-              label={"Siguenos"}
-              styleClass={"neutral"}
+              label="Siguenos"
+              variant="neutral"
               onClick={() => handleRedirect(TWITER_URL)}
             />
           </StyledDivContainer>

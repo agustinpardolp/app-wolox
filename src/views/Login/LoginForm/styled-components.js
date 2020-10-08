@@ -24,7 +24,7 @@ const StyledLogin = styled.section`
     margin: 0% 4% 5% 4%;
     background: white;
     height: 30rem;
-    width: 30rem;
+    width: 25rem;
     border-radius: 5px;
     box-shadow: 0 0 25px 0 var(--primaryInputBorder);
   }
