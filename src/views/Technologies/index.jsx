@@ -11,7 +11,6 @@ import {
   StyledSearchContainer,
   StyledTotal,
 } from "./styled-components";
-import ToastNotification from "../../components/ToastNotification";
 import Divider from "../../components/Divider";
 import CheckBox from "../../components/Checkbox";
 import Input from "../../components/Input";
@@ -22,10 +21,11 @@ const Technologies = ({ technologiesList, fetchTechnologies }) => {
   const [order, setOrder] = useState(technologiesList);
 
   useEffect(() => {
-    fetchTechnologies(); 
+    fetchTechnologies();
   }, [fetchTechnologies]);
 
-  const handleSearch = useCallback((e) => { //fn to search technologies
+  const handleSearch = useCallback((e) => {
+    //fn to search technologies
     let searchArray = technologiesList.filter((tech) => {
       return (
         tech.tech.toLowerCase().includes(e.target.value.toLowerCase()) ||
@@ -36,7 +36,8 @@ const Technologies = ({ technologiesList, fetchTechnologies }) => {
     setSearchResult(searchArray);
   }, []);
 
-  const handleOrder = useCallback( //fn to order technologies
+  const handleOrder = useCallback(
+    //fn to order technologies
     (techArray) => {
       if (order) {
         let orderArray = techArray.sort((a, b) => {
@@ -68,7 +69,7 @@ const Technologies = ({ technologiesList, fetchTechnologies }) => {
     setOrder(!order);
   }, [order]);
 
-  const techArrayHandler = (techArray) => { 
+  const techArrayHandler = (techArray) => {
     return techArray && techArray.length ? (
       techArray.map((tech) => {
         return (
@@ -141,7 +142,6 @@ const Technologies = ({ technologiesList, fetchTechnologies }) => {
             : 0}
         </span>
       </StyledTotal>
-      <ToastNotification />
     </StyledTechnologies>
   );
 };
