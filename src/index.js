@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import "../src/assets/style/index.css";
 import App from "./App";
 import LanguageWrapper from "../src/components/LenguageWrapper";
-
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(

@@ -16,14 +16,7 @@ const PrivateRoute = ({ token, component: Component, ...rest }) => {
       <Route
         {...rest}
         render={(props) =>
-          checkAuth(props) ? (
-            <>
-              {console.log("CHECJOUKT", checkAuth(props))}
-              <Component {...props} />
-            </>
-          ) : (
-            <Redirect to="/login" />
-          )
+          checkAuth(props) ? <Component {...props} /> : <Redirect to="/login" />
         }
       />
     </>

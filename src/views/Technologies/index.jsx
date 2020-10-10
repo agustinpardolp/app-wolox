@@ -11,6 +11,7 @@ import {
   StyledSearchContainer,
   StyledTotal,
 } from "./styled-components";
+import ToastNotification from "../../components/ToastNotification";
 import Divider from "../../components/Divider";
 import CheckBox from "../../components/Checkbox";
 import Input from "../../components/Input";
@@ -139,6 +140,7 @@ const Technologies = ({ technologiesList, fetchTechnologies }) => {
             : 0}
         </span>
       </StyledTotal>
+      <ToastNotification />
     </StyledTechnologies>
   );
 };

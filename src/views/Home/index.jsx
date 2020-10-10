@@ -18,7 +18,7 @@ import Technologies from "./Technologies";
 import Benefits from "./Benefits";
 import Requirements from "./Requirements";
 
-export const Home = ({ history }) => {
+export const Home = () => {
   const handleRedirect = (ULR) => {
     return window.open(ULR);
   };
@@ -96,7 +96,6 @@ export const Home = ({ history }) => {
           />
         </div>
       </StyledHome>
-      <ToastNotification />
     </>
   );
 };

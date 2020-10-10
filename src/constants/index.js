@@ -24,6 +24,7 @@ export const NAVBAR_AUTH_TITLES = [
   { name: "header.home", path: "/auth/home" },
   { name: "header.techonologies", path: "/auth/tecnologias" },
 ];
+
 export const BENEFIT_LIST = [
   { name: "home.flex", file: "Ic_Hour" },
   { name: "home.homeOffice", file: "Ic_HomeOffice" },
