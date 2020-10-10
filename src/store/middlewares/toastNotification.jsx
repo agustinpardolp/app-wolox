@@ -1,6 +1,7 @@
 import { successMessages, failureMessages } from "./messages";
 import { showNotification } from "../actions/notificationActions/index";
 
+//middleware to intercept the request status (succesfull or failed) and trigger a toast notificacion
 const toastMiddleware = (state) => (next) => (action) => {
   const { type } = action;
 

@@ -5,9 +5,9 @@ import { resetNotification } from "../../store/actions/notificationActions/";
 import { StyledNotification } from "./styledComponents";
 import { SideAnimation } from "../../utils/animations";
 
+//component to show a notificacion when the login is succesfull
 const ToastNotification = ({ message, msgType, resetNotification }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   useEffect(() => {
     if (message) {
       handlerOpenToast();
