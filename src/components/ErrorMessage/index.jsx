@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import PropTypes from "prop-types";
 const StyledError = styled.span`
   display: block;
   color: red;
@@ -11,4 +11,8 @@ const StyledError = styled.span`
 const ErrorMessage = ({ errorMessage }) => {
   return <StyledError>{errorMessage && errorMessage}</StyledError>;
 };
+ErrorMessage.propTypes = {
+  errorMessage: PropTypes.string,
+};
+
 export default React.memo(ErrorMessage);

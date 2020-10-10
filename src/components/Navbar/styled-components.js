@@ -5,7 +5,7 @@ import { HashLink as Link } from "react-router-hash-link";
 
 const StyledNavbar = styled.header`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   opacity: ${(props) => (props.showNavbar ? "0" : "1")};
   background-image: url("images/Backgrounds/Bg_Header.png");
@@ -71,10 +71,23 @@ const StyledMenu = styled.ul`
     flex: auto;
     text-align: center;
   }
+  .navbar-button_translation-container {
+    display: flex;
+    list-style: none;
+    li {
+      color: var(--primaryConfirm);
+    }
+    @media ${DEVICES_MAX_WIDTH.laptop} {
+      display: flex;
+      li {
+        padding: 0;
+      }
+    }
+  }
 
   @media ${DEVICES_MAX_WIDTH.laptop} {
     display: ${(props) => (props.display ? "block" : "none")};
-    height: 46vh;
+    height: 50vh;
 
     background: #f7f7f7;
     position: relative;

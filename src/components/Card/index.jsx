@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "../Image";
 import Button from "../Button";
+import PropTypes from "prop-types";
 import { OverlayAnimation } from "../../utils/animations";
 import { StyledCard, StyledCategoryTittle } from "./styled-components";
 
@@ -12,7 +13,7 @@ const Card = ({ imgUrl, disableInfo, children, disableAnimation }) => {
         {disableAnimation ? null : (
           <OverlayAnimation>
             <StyledCategoryTittle fontSize={"20px"}>
-              <Button variant="neutral" label={"Info.."}></Button>
+              <Button variant="neutral" label={"button.info"}></Button>
             </StyledCategoryTittle>
           </OverlayAnimation>
         )}
@@ -20,6 +21,13 @@ const Card = ({ imgUrl, disableInfo, children, disableAnimation }) => {
       {disableInfo ? null : children}
     </StyledCard>
   );
+};
+
+Card.propTypes = {
+  imgUrl: PropTypes.string,
+  disableInfo: PropTypes.bool,
+  children: PropTypes.object,
+  disableAnimation: PropTypes.bool,
 };
 
 export default Card;

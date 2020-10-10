@@ -16,17 +16,7 @@ const PrivateRoute = ({ token, component: Component, ...rest }) => {
       <Route
         {...rest}
         render={(props) =>
-          checkAuth(props) ? (
-            <>
-              <Component {...props} />
-            </>
-          ) : (
-            <>
-              <Redirect
-                to={{ pathname: "/login", state: { from: props.location } }}
-              />
-            </>
-          )
+          checkAuth(props) ? <Component {...props} /> : <Redirect to="/login" />
         }
       />
     </>
@@ -37,7 +27,7 @@ export const mapStateToProps = (state) => {
     user: { token },
   } = state;
   return {
-    token,
+    token: !!Object.keys(token).length,
   };
 };
 

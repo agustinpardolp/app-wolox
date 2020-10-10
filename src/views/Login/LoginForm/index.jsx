@@ -1,10 +1,13 @@
 import React, { useCallback } from "react";
+import { FormattedMessage } from "react-intl";
+import PropTypes from "prop-types";
+
 import { StyledLogin } from "./styled-components";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
 
-const LoginForm = ({ values, handleChange, handleSubmit, errors, history }) => {
+const LoginForm = ({ values, handleChange, handleSubmit, errors }) => {
   const errorsFormHandler = useCallback(() => {
     return Object.entries(errors).length > 0;
   }, [errors]);
@@ -21,10 +24,12 @@ const LoginForm = ({ values, handleChange, handleSubmit, errors, history }) => {
     <StyledLogin>
       <form onSubmit={handleLoginSubmit}>
         <div className="login-container">
-          <h2>Login</h2>
+          <h2>
+            <FormattedMessage id="login.loginTitle" />
+          </h2>
           <Input
             name={"email"}
-            label={"Ingrese su Usuario"}
+            label={"login.user"}
             handleChange={handleChange}
             iconType={faUser}
             type={"text"}
@@ -33,7 +38,7 @@ const LoginForm = ({ values, handleChange, handleSubmit, errors, history }) => {
           />
           <Input
             name={"password"}
-            label={"Ingrese su contraseña"}
+            label={"login.password"}
             handleChange={handleChange}
             iconType={faLock}
             type={"password"}
@@ -41,12 +46,14 @@ const LoginForm = ({ values, handleChange, handleSubmit, errors, history }) => {
             errors={errors.password}
           />
           <Button
-            label={"Ingresar"}
+            label={"button.enter"}
             type={!errorsFormHandler() ? "submit" : "text"}
             variant={!errorsFormHandler() ? "confirm" : "disabled"}
           />
           <div className="login_checkbox-container">
-            <p>Deseo mantener mi sesión conectada</p>
+            <p>
+              <FormattedMessage id="login.session" />
+            </p>
             <input
               name={"rememberUser"}
               type="checkbox"
@@ -58,6 +65,14 @@ const LoginForm = ({ values, handleChange, handleSubmit, errors, history }) => {
       </form>
     </StyledLogin>
   );
+};
+
+LoginForm.propTypes = {
+  values: PropTypes.object,
+  handleChange: PropTypes.func.isRequired,
+  handleClick: PropTypes.func,
+  handleSubmit: PropTypes.func,
+  errors: PropTypes.object,
 };
 
 export default LoginForm;

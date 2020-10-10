@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
+import { FormattedMessage } from "react-intl";
 import Button from "../Button";
-
+import { Context } from "../LenguageWrapper";
 import { NAVBAR_TITLES, NAVBAR_AUTH_TITLES } from "../../constants";
 
 import { StyledMenu, StyledLink } from "./styled-components";
 
 const Menu = ({ pathname, display, history, token, openModal }) => {
+  const context = useContext(Context);
+
+  let tokenData = JSON.parse(localStorage.getItem("token_data"));
   const onClickRedirect = () => {
     history.push("/login");
   };
@@ -13,7 +18,8 @@ const Menu = ({ pathname, display, history, token, openModal }) => {
   const activeHandler = (name) => {
     return name.includes(pathname) ? true : false;
   };
-
+  const hasToken =
+    Object.keys(token).length || (tokenData && Object.keys(tokenData).length);
   const handleMenu = (menuOptions) => {
     return menuOptions.map((label) => {
       return (
@@ -24,20 +30,19 @@ const Menu = ({ pathname, display, history, token, openModal }) => {
             key={label.name}
             smooth
           >
-            {label.name}
+            <FormattedMessage id={`${label.name}`} />
           </StyledLink>
         </li>
       );
     });
   };
+
   return (
     <>
       <StyledMenu display={display}>
-        {Object.keys(token).length
-          ? handleMenu(NAVBAR_AUTH_TITLES)
-          : handleMenu(NAVBAR_TITLES)}
+        {hasToken ? handleMenu(NAVBAR_AUTH_TITLES) : handleMenu(NAVBAR_TITLES)}
         <li className="navbar-button-container">
-          {Object.keys(token).length ? (
+          {hasToken ? (
             <Button label={"Logout"} variant={"logout"} onClick={openModal} />
           ) : (
             <Button
@@ -47,9 +52,27 @@ const Menu = ({ pathname, display, history, token, openModal }) => {
             />
           )}
         </li>
+        <li>
+          <ul className="navbar-button_translation-container">
+            <li value="en-us" onClick={context.changeLanguage}>
+              <FormattedMessage id="header.english" />
+            </li>
+            <li value="en-es" onClick={context.changeLanguage}>
+              <FormattedMessage id="header.spanish" />
+            </li>
+          </ul>
+        </li>
       </StyledMenu>
     </>
   );
 };
 
-export default Menu;
+Menu.propTypes = {
+  pathname: PropTypes.string,
+  display: PropTypes.bool,
+  history: PropTypes.object,
+  token: PropTypes.object,
+  openModal: PropTypes.func,
+};
+
+export default React.memo(Menu);

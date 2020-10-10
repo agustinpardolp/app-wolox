@@ -32,12 +32,18 @@ const Login = withFormik({
     password: password || "",
     rememberUser: rememberUser || false,
   }),
-  handleSubmit: (value, { props, setErrors, setFieldValue }) => {
+  handleSubmit: (value, { props, setErrors }) => {
     props.login(value).then((res) => {
       let { type } = res;
-      type === users.LOGIN_USER_SUCCESS
-        ? props.history.push(`/auth/tecnologias`)
-        : setErrors("ocurrio un error al iniciar sesión");
+      let token = localStorage.getItem("token_data");
+
+      if (type === users.LOGIN_USER_SUCCESS) {
+        token
+          ? props.history.push(`/auth/tecnologias`)
+          : props.history.push(`/auth/home`);
+      } else {
+        setErrors("ocurrio un error al iniciar sesión");
+      }
     });
   },
 })(LoginForm);

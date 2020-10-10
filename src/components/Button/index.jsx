@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { FormattedMessage } from "react-intl";
 import { StyledButton } from "./styled-components";
-
 const Button = ({ label, onClick, variant, type }) => {
   const handleVariant = (variant) => {
     let settings = {
@@ -75,8 +76,16 @@ const Button = ({ label, onClick, variant, type }) => {
       type={type}
       disabled={buttonSetup.disabled}
     >
-      {label}
+      <FormattedMessage id={label} />
     </StyledButton>
   );
 };
+
+Button.propTypes = {
+  onClick: PropTypes.func,
+  label: PropTypes.string,
+  variant: PropTypes.string,
+  type: PropTypes.string,
+};
+
 export default Button;

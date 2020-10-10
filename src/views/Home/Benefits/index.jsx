@@ -1,19 +1,23 @@
 import React from "react";
 import { BENEFIT_LIST } from "../../../constants";
 import Divider from "../../../components/Divider";
+import { FormattedMessage } from "react-intl";
+
 const Benefits = () => {
   return (
     <div className="home_benefits" id="beneficios">
       <p>
-        Entre los beneficios que ofrecemos se encuentran{" "}
+        <FormattedMessage id="home.benefits" />
         <span className="home_span-primary">;)</span>
       </p>
       <div className="home_benefits_list-container">
         {BENEFIT_LIST.map((benefits) => {
           return (
-            <div>
+            <div key={benefits.name}>
               <img src={`/images/Img Hero/${benefits.file}.svg`} alt="" />
-              <label>{benefits.name}</label>
+              <label>
+                <FormattedMessage id={`${benefits.name}`} />
+              </label>
             </div>
           );
         })}

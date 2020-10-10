@@ -10,22 +10,28 @@ export const TWITER_URL = "https://twitter.com/Wolox";
 export const WOLOX_URL = "https://www.wolox.com.ar/";
 
 export const NAVBAR_TITLES = [
-  { name: "Inicio", path: "/#home", authPath: "/auth/home" },
-  { name: "Tecnologias", path: "/#tecnologias", authPath: "/auth/tecnologias" },
-  { name: "Beneficios", path: "/#beneficios" },
-  { name: "Requerimientos", path: "/#requerimientos" },
+  { name: "header.home", path: "/#home", authPath: "/auth/home" },
+  {
+    name: "header.techonologies",
+    path: "/#tecnologias",
+    authPath: "/auth/tecnologias",
+  },
+  { name: "header.benefits", path: "/#beneficios" },
+  { name: "header.requirements", path: "/#requerimientos" },
 ];
+
 export const NAVBAR_AUTH_TITLES = [
-  { name: "Inicio", path: "/auth/home" },
-  { name: "Tecnologias", path: "/auth/tecnologias" },
+  { name: "header.home", path: "/auth/home" },
+  { name: "header.techonologies", path: "/auth/tecnologias" },
 ];
+
 export const BENEFIT_LIST = [
-  { name: "Flexibilidad Horaria", file: "Ic_Hour" },
-  { name: "Home Office", file: "Ic_HomeOffice" },
-  { name: "Capacitaciones y Workshops", file: "Ic_Workshops" },
-  { name: "Snacks, frutas, y bebidas gratis", file: "Ic_DrinkSnacks" },
-  { name: "Semana remota", file: "Ic_laptop" },
-  { name: "Trabajar en ultimas tecnologías", file: "Ic_brain" },
+  { name: "home.flex", file: "Ic_Hour" },
+  { name: "home.homeOffice", file: "Ic_HomeOffice" },
+  { name: "home.workshops", file: "Ic_Workshops" },
+  { name: "home.snacks", file: "Ic_DrinkSnacks" },
+  { name: "home.remote", file: "Ic_laptop" },
+  { name: "home.lastTechnologies", file: "Ic_brain" },
 ];
 
 export const REGEX = {

@@ -103,7 +103,7 @@ const StyledHomeWrapper = styled.div`
   align-items: center;
   p {
     font-size: ${(props) => props.paragraphSize && props.paragraphSize};
-    width: 60%;
+    width: 62%;
     font-weight: bold;
   }
   @media ${DEVICES_MAX_WIDTH.laptop} {
@@ -130,6 +130,9 @@ const StyledDataWrapper = styled.div`
       : `url("images/Backgrounds/Bg_Header.png") no-repeat center`};
   background-size: ${(props) => (props.backgroundSize ? "contain" : "cover")};
   padding: 1%;
+  .text-light {
+    font-weight: normal;
+  }
 `;
 
 const StyledDivContainer = styled.div`
