@@ -5,6 +5,7 @@ import { StyledMain } from "./styled-components";
 import MainRouter from "../../routes/Router";
 import ToastNotification from "../../components/ToastNotification";
 import Footer from "../../components/Footer";
+
 const Main = () => {
   return (
     <StyledMain>
