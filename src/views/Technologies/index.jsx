@@ -22,10 +22,10 @@ const Technologies = ({ technologiesList, fetchTechnologies }) => {
   const [order, setOrder] = useState(technologiesList);
 
   useEffect(() => {
-    fetchTechnologies();
+    fetchTechnologies(); 
   }, [fetchTechnologies]);
 
-  const handleSearch = (e) => {
+  const handleSearch = useCallback((e) => { //fn to search technologies
     let searchArray = technologiesList.filter((tech) => {
       return (
         tech.tech.toLowerCase().includes(e.target.value.toLowerCase()) ||
@@ -34,9 +34,9 @@ const Technologies = ({ technologiesList, fetchTechnologies }) => {
     });
 
     setSearchResult(searchArray);
-  };
+  }, []);
 
-  const handleOrder = useCallback(
+  const handleOrder = useCallback( //fn to order technologies
     (techArray) => {
       if (order) {
         let orderArray = techArray.sort((a, b) => {
@@ -64,10 +64,11 @@ const Technologies = ({ technologiesList, fetchTechnologies }) => {
     },
     [order]
   );
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     setOrder(!order);
-  };
-  const techArrayHandler = (techArray) => {
+  }, [order]);
+
+  const techArrayHandler = (techArray) => { 
     return techArray && techArray.length ? (
       techArray.map((tech) => {
         return (

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+// custom hook to handler modals behiaviour
 export const useModal = (state, trigger, path, history) => {
   let [showModal, setShowModal] = useState(state);
 
