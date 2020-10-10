@@ -1,27 +1,45 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Button from "../Button";
-import { StyledModal } from "./styled-components";
+import { FormattedMessage } from "react-intl";
+import { StyledModal, StyledModalWrapper } from "./styled-components";
 
 const Modal = ({ onConfirm, onHide, show, label }) => {
   return (
     <>
       {show ? (
-        <StyledModal>
-          <div className="modal_label-container">
-            <p>{label}</p>
-          </div>
-          <div className="modal_button-group">
-            <Button
-              variant="confirm"
-              label="Confirmar"
-              onClick={onConfirm}
-            ></Button>
-            <Button variant="cancel" label="Cancel" onClick={onHide}></Button>
-          </div>
-        </StyledModal>
+        <StyledModalWrapper>
+          <StyledModal>
+            <div className="modal_label-container">
+              <p>
+                {" "}
+                <FormattedMessage id={label} />
+              </p>
+            </div>
+            <div className="modal_button-group">
+              <Button
+                variant="confirm"
+                label="button.confirm"
+                onClick={onConfirm}
+              ></Button>
+              <Button
+                variant="cancel"
+                label="button.cancel"
+                onClick={onHide}
+              ></Button>
+            </div>
+          </StyledModal>
+        </StyledModalWrapper>
       ) : null}
     </>
   );
 };
 
-export default Modal;
+Modal.propTypes = {
+  onConfirm: PropTypes.func,
+  onHide: PropTypes.func,
+  show: PropTypes.bool,
+  label: PropTypes.string,
+};
+
+export default React.memo(Modal);

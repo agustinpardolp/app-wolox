@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { StyledImage } from "./styled-components";
 
 const Image = ({
@@ -22,6 +23,16 @@ const Image = ({
       {children}
     </StyledImage>
   );
+};
+
+Image.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
+  border: PropTypes.string,
+  bgCover: PropTypes.string,
+  isRounded: PropTypes.bool,
+  imgLocation: PropTypes.string,
+  children: PropTypes.array,
 };
 
 export default React.memo(Image);

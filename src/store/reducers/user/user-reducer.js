@@ -4,7 +4,7 @@ import { REQUEST_STATUS } from "../../../constants/index";
 export const userReducer = (
   state = {
     data: {},
-    token: "",
+    token: {},
     status: REQUEST_STATUS.NOT_LOADED,
     error: "",
   },

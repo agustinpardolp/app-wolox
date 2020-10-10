@@ -1,25 +1,27 @@
 import React from "react";
 import { StyledHomeWrapper, StyledDataWrapper } from "../styled-components";
+import { FormattedMessage } from "react-intl";
 const Requirements = () => {
   return (
     <StyledHomeWrapper paragraphSize={"2.5rem"} id="requerimientos">
       <StyledDataWrapper height={"20rem"}>
-        <p>Requerimientos</p>
+        <p>
+          <FormattedMessage id="home.requirements" />
+        </p>
       </StyledDataWrapper>
       <StyledDataWrapper>
         <ul className="home_requirements-list">
           <li>
-            <img src="/images/Bullets/Ic_Bullet_1.svg" alt="" /> Estudiantes
-            avanzados o recibidos de carreras del rubro informático, sistemas o
-            electronicos
+            <img src="/images/Bullets/Ic_Bullet_1.svg" alt="" />{" "}
+            <FormattedMessage id="home.students" />
           </li>
           <li>
             <img src="/images/Bullets/Ic_Bullet_2.svg" alt="" />
-            Ingles intermedio/avanzado
+            <FormattedMessage id="home.english" />
           </li>
           <li>
             <img src="/images/Bullets/Ic_Bullet_3.svg" alt="" />
-            Conocimiento en metodologias ágiles (deseable)
+            <FormattedMessage id="home.agile" />
           </li>
         </ul>
       </StyledDataWrapper>

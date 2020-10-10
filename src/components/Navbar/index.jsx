@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { StyledNavbar } from "./styled-components";
 import { useModal } from "../../hooks";
-import Modal from "../../components/Modal";
-import Menu from "./Menu";
 import { logout } from "../../store/actions/userActions/index";
+import Modal from "../Modal";
+import Menu from "./Menu";
 import Burger from "./Burger";
 import BrandLogo from "../../assets/images/logo_full_color.svg";
 
@@ -14,23 +15,26 @@ export const Navbar = ({ location, history, token, logout }) => {
   let [showMenu, setShowMenu] = useState(false);
   let [hideOnScroll, sethideOnScroll] = useState(false);
 
-  useEffect(() => {
-    window.addEventListener("scroll", onScroll);
-  }, []);
-  const { showModal, hideModal, openModal } = useModal(false);
-  const onScroll = () => {
+  const onScroll = useCallback(() => {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50)
       sethideOnScroll(true);
     else sethideOnScroll(false);
-  };
-  const handleLogout = () => {
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll);
+  }, [onScroll]);
+  const { showModal, hideModal, openModal } = useModal(false);
+
+  const handleLogout = useCallback(() => {
     hideModal();
     logout();
-    history.push("/#home");
-  };
-  const handleShowMobileMenu = () => {
+    history.push("/home");
+  }, [hideModal, history, logout]);
+
+  const handleShowMobileMenu = useCallback(() => {
     setShowMenu(!showMenu);
-  };
+  }, [showMenu]);
 
   return (
     <>
@@ -52,7 +56,7 @@ export const Navbar = ({ location, history, token, logout }) => {
         show={showModal}
         onConfirm={handleLogout}
         onHide={hideModal}
-        label={"¿Esta seguro que desea salir?"}
+        label="modal.message"
       />
     </>
   );
@@ -69,5 +73,20 @@ export const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   logout,
 };
+Navbar.propTypes = {
+  location: PropTypes.object,
+  history: PropTypes.object,
+  token: PropTypes.object,
+  logout: PropTypes.func,
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Navbar));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(
+  withRouter(
+    React.memo(Navbar, (prevProps, nextProps) => {
+      return prevProps.location === nextProps.location;
+    })
+  )
+);

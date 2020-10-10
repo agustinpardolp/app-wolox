@@ -2,16 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "../src/assets/style/index.css";
 import App from "./App";
-import * as serviceWorker from "./serviceWorker";
-import { addLocaleData } from "react-intl";
-import locale_en from "react-intl/locale-data/en";
-import locale_de from "react-intl/locale-data/de";
+import LanguageWrapper from "../src/components/LenguageWrapper";
 
-addLocaleData([...locale_en, ...locale_de]);
+import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <LanguageWrapper>
+      <App />
+    </LanguageWrapper>
   </React.StrictMode>,
   document.getElementById("root")
 );

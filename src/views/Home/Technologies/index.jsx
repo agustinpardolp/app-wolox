@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledHomeWrapper, StyledDataWrapper } from "../styled-components";
-
+import { FormattedMessage } from "react-intl";
 const Technologies = () => {
   return (
     <StyledHomeWrapper
@@ -10,8 +10,7 @@ const Technologies = () => {
     >
       <StyledDataWrapper>
         <p>
-          Estamos buscando para incorporar gente increible para estas
-          tecnologías:
+          <FormattedMessage id="home.tecnologies" />
         </p>
       </StyledDataWrapper>
       <StyledDataWrapper

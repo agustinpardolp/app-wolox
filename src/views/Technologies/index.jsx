@@ -1,5 +1,8 @@
 import React, { useEffect, useState, useCallback } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { v4 as uuid } from "uuid";
+import { FormattedMessage } from "react-intl";
 import Card from "../../components/Card";
 import {
   StyledContainer,
@@ -11,17 +14,9 @@ import {
 import Divider from "../../components/Divider";
 import CheckBox from "../../components/Checkbox";
 import Input from "../../components/Input";
-
-import ToastNotification from "../../components/ToastNotification";
-import { REQUEST_STATUS } from "../../constants";
 import { fetchTechnologies } from "../../store/actions/technologiesActions";
 
-const Technologies = ({
-  technologiesList,
-  fetchTechnologies,
-  deleteImage,
-  status,
-}) => {
+const Technologies = ({ technologiesList, fetchTechnologies }) => {
   const [searchResult, setSearchResult] = useState();
   const [order, setOrder] = useState(technologiesList);
 
@@ -75,18 +70,40 @@ const Technologies = ({
     return techArray && techArray.length ? (
       techArray.map((tech) => {
         return (
-          <li>
+          <li key={uuid()}>
             {" "}
             <Card imgUrl={tech.logo}>
               <StyledInfoContainer>
                 <h4>{tech.tech}</h4>
-                <p>
-                  Created in {tech.year} by {tech.author}
-                  <span>Licenced by {tech.license}</span>
-                </p>
+                <div>
+                  <p>
+                    <FormattedMessage
+                      id="technologies.created"
+                      values={{
+                        year: `${tech.year}`,
+                        author: `${tech.author}`,
+                        licence: `${tech.license}`,
+                        span: (word) => word,
+                        labelAuthor: (word) => word,
+                      }}
+                    />
+                  </p>
+                  <p>
+                    <FormattedMessage
+                      id="technologies.licence"
+                      values={{
+                        licence: `${tech.license}`,
+                        labelLicence: (word) => word,
+                      }}
+                    />
+                  </p>
+                </div>
                 <span>
                   {" "}
-                  <strong> Category: </strong>
+                  <strong>
+                    {" "}
+                    <FormattedMessage id="technologies.category" />{" "}
+                  </strong>
                   {tech.type}
                 </span>
               </StyledInfoContainer>
@@ -106,23 +123,22 @@ const Technologies = ({
         <StyledSearchContainer>
           <Input
             handleChange={handleSearch}
-            label={"Buscar tecnologias"}
+            label={"technologies.search"}
             type="search"
           />
-          <CheckBox handleClick={handleClick} label={"Ordenar de a-z"} />
+          <CheckBox handleClick={handleClick} label={"technologies.order"} />
         </StyledSearchContainer>
         <Divider disableShadow={true} />
         <ul>{handleOrder(searchResult || technologiesList)}</ul>
       </StyledContainer>
       <StyledTotal>
         <span>
-          Total de tecnologias:{" "}
+          <FormattedMessage id="technologies.total" />{" "}
           {handleOrder(searchResult || technologiesList).length
             ? handleOrder(searchResult || technologiesList).length
             : 0}
         </span>
       </StyledTotal>
-      <ToastNotification />
     </StyledTechnologies>
   );
 };
@@ -140,6 +156,11 @@ export const mapStateToProps = (state) => {
 
 export const mapDispatchToProps = {
   fetchTechnologies,
+};
+
+Technologies.propTypes = {
+  technologiesList: PropTypes.array,
+  fetchTechnologies: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Technologies);

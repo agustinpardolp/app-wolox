@@ -1,12 +1,18 @@
 import React from "react";
 import { StyledHomeWrapper, StyledDataWrapper } from "../styled-components";
-
+import { FormattedMessage } from "react-intl";
 const Introduction = () => {
   return (
     <StyledHomeWrapper paragraphSize={"3rem"} id="home">
       <StyledDataWrapper>
-        <p>
-          Bienvenido a tu <strong> Entrevista Tecnica</strong> en{" "}
+        <p className="text-light">
+          <FormattedMessage
+            id="home.welcome"
+            values={{
+              interview: "Entrevista Tecnica",
+              code: (word) => <strong>{word}</strong>,
+            }}
+          />
           <span className="home_span_confirm">
             <strong> Wolox</strong>{" "}
           </span>

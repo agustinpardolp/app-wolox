@@ -31,7 +31,7 @@ const StyledLogin = styled.section`
 
   .login_checkbox-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     color: var(--primaryInputBorder);
   }
